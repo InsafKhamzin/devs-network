@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-// @route Get apu/profile
+// @route Get api/profile
 router.get('/', (req, res) => {
     res.send('Profile route');
 });
