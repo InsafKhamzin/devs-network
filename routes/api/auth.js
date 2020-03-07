@@ -21,8 +21,7 @@ router.get('/', auth, async (req, res) => {
 });
 
 
-// @route Get api/users
-// @desc register user
+// @route Get api/auth
 router.post('/', [
     check('email', 'Email is not valid').isEmail(),
     check('password', 'Password is required').exists()
@@ -58,7 +57,7 @@ router.post('/', [
         jwt.sign(
             payload,
             config.get('jwtSecret'),
-            { expiresIn: 3600 },
+            { expiresIn: 36000 },
             (err, token) => {
                 if (err) throw err;
                 res.json({ token });
