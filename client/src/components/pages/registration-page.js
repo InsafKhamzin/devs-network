@@ -1,5 +1,9 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import {connect} from 'react-redux';
+import {setAlert} from '../../actions/actions';
+import PropTypes from 'prop-types'
+
 
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
@@ -32,7 +36,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-function RegistrationPage() {
+function RegistrationPage({setAlert}) {
 
   const classes = useStyles();
 
@@ -42,6 +46,7 @@ function RegistrationPage() {
 
   const onSubmit = e =>{
     e.preventDefault();
+    setAlert('Password do not match', 'danger');
     console.log(name, email, password);
   }
 
@@ -121,4 +126,8 @@ function RegistrationPage() {
   );
 }
 
-export default RegistrationPage;
+RegistrationPage.propTypes = {
+  setAlert: PropTypes.func.isRequired
+}
+
+export default connect(null,  { setAlert} )(RegistrationPage);
