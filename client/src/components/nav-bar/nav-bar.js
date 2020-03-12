@@ -3,7 +3,6 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography'
 import Button from '@material-ui/core/Button';
-import ButtonGroup from '@material-ui/core/ButtonGroup';
 import { Link } from 'react-router-dom';
 
 import './nav-bar.css';
@@ -17,8 +16,7 @@ const Navbar = () => {
                         DevNetwork
                     </Typography>
 
-
-                    <ButtonGroup className="nav">
+                    <div className="nav">
                         <Link className="nav-link" to="/" >
                             <Button color="inherit">Developer</Button>
                         </Link>
@@ -31,7 +29,7 @@ const Navbar = () => {
                         <Link className="nav-link" to="/login">
                             <Button color="inherit">Login</Button>
                         </Link>
-                    </ButtonGroup>
+                    </div>
                 </Toolbar>
             </AppBar>
         </div>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import Avatar from '@material-ui/core/Avatar';
@@ -38,6 +38,9 @@ const useStyles = makeStyles(theme => ({
 const LoginPage = () => {
     const classes = useStyles();
 
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+
     return (
         <Container component="main" maxWidth="xs">
             <CssBaseline />
@@ -47,7 +50,7 @@ const LoginPage = () => {
                 </Avatar>
                 <Typography component="h1" variant="h5">
                     Sign in
-        </Typography>
+                </Typography>
                 <form className={classes.form} noValidate>
                     <TextField
                         variant="outlined"
@@ -57,6 +60,8 @@ const LoginPage = () => {
                         id="email"
                         label="Email Address"
                         name="email"
+                        value={email}
+                        onChange={e => setEmail(e.target.value)}
                         autoComplete="email"
                         autoFocus
                     />
@@ -66,6 +71,8 @@ const LoginPage = () => {
                         required
                         fullWidth
                         name="password"
+                        value={password}
+                        onChange={e => setPassword(e.target.value)}
                         label="Password"
                         type="password"
                         id="password"
