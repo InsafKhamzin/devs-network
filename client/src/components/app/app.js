@@ -8,12 +8,14 @@ import store from '../../store';
 
 import Navbar from '../nav-bar';
 import { HomePage, LoginPage, RegistrationPage } from '../pages';
+import Alert from '../alert'
 
 const App = () =>
   <Provider store={store}>
     <Router>
       <Fragment>
         <Navbar />
+        <Alert/>
         <Switch>
           <Route exact path="/" component={HomePage} />
           <Route exact path="/register" component={RegistrationPage} />
